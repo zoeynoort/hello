@@ -15,29 +15,35 @@ export const settings = {
 
 // state
 let loaded;
-let text;
+let data;
 
 
 async function fetchData() {
     const data = await api.post('/hello');
-    return data.greeting;
+    return data;
 }
 
 onMount(async() => {
-    text = await fetchData();
+    data = await fetchData();
     loaded = true;
 });
 </script>
 
-{#if !loaded}
+{#if loaded}
+    <div class="container">
+        <p>{data.greeting}, {$user.name.first}</p>
+        <span>{data.language}</span>
+    </div>
+{/if}
+<!-- {#if !loaded}
     <p>Hello, {$user.name.first}</p>
 {:else}
-    {#if text}
-        <p>{text}, {$user.name.first}</p>
+    {#if data}
+        <p>{data.greeting}, {$user.name.first}</p>
     {:else}
         <p>No text</p>
     {/if}
-{/if}
+{/if} -->
 
 <style>
     p {
