@@ -35,15 +35,7 @@ onMount(async() => {
         <span>{data.language}</span>
     </div>
 {/if}
-<!-- {#if !loaded}
-    <p>Hello, {$user.name.first}</p>
-{:else}
-    {#if data}
-        <p>{data.greeting}, {$user.name.first}</p>
-    {:else}
-        <p>No text</p>
-    {/if}
-{/if} -->
+
 
 <style>
     p {
