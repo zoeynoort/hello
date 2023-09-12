@@ -36,7 +36,7 @@ module.exports = {
     {
       route: '/hello',
       method: 'post',
-      handler: async (req, res) => {
+      handler: async (req, res, user) => {
         const url = 'https://www.greetingsapi.com/random';
         const data = await server.get(url);
         res.json(data);
